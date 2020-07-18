@@ -6,6 +6,11 @@ instructor = {
     'is_funny': False,
     44: 'Fav number'
 }
+
+num_list = [1, 2, 3, 4]
+
+person = [["name", "Jared"], ["job", "Musician"], ["city", "Bern"]]
+
 # for key in instructor.keys():
 #     print(key)
 # print(" == == == == == == == == == =")
@@ -34,8 +39,17 @@ instructor = {
 # print(item3)
 # print(instructor)
 
-print(instructor)
+# print(instructor)
 
-person = {'city': 'Portland'}
-person.update(instructor)
-print(person)
+# person = {'city': 'Portland'}
+# person.update(instructor)
+# print(person)
+
+# instructor_caps = {k.upper(): v.upper() for k, v in instructor.items()}
+# print(instructor_caps)
+
+# new_nums = {num: ("even" if num % 2 == 0 else "odd") for num in num_list}
+# print(new_nums)
+
+person_dict = {k: v for k, v in person}
+print(person_dict)
