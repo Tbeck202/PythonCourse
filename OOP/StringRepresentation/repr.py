@@ -8,6 +8,10 @@ class User:
         self.age = age
         User.active_users += 1
 
+    # this is the string representation method
+    def __repr__(self):
+        return f"{self.first} is {self.age}"
+
     def logout(self):
         User.active_users -= 1
         return f"{self.first} has logged out!"
@@ -32,6 +36,12 @@ class User:
         return f"Happy Birthday {self.first}! You just turned {self.age}"
 
 
+user1 = User("Tyler", "Beck", 37)  # instantiating classes
+user2 = User("Alex", "Linsley", 31)  # instantiating classes
+user3 = User("John", "Johnson", 66)
+
+print(user1)
+
 # print(user1.full_name())
 # print(user1.info())
 # print(user1.birthday())
@@ -40,14 +50,11 @@ class User:
 # print(user2.likes("wine"))
 # print(user1.is_senior())
 # print(user3.is_senior())
-print(User.active_users)
-user1 = User("Tyler", "Beck", 37)  # instantiating classes
-user2 = User("Alex", "Linsley", 31)  # instantiating classes
-user3 = User("John", "Johnson", 66)
-print(user1)
-print(User.active_users)
-print(user1.logout())
-print(User.active_users)
+# print(User.active_users)
+
+# print(User.active_users)
+# print(user1.logout())
+# print(User.active_users)
 
 
 # print(f"{user1.first} {user1.last} is {user1.age} years old!")
