@@ -55,50 +55,39 @@ while page_num <= 10:
         data.append(quote_group)
     page_num += 1
 
+
 guess_num = 1
-random_index = random.randint(0, len(data) - 1)
-random_quote = data[random_index]
-print(random_quote.author)
-# print(random_quote.url)
-while guess_num <= 4:
-    print(f"guess_num = {guess_num}")
-    if guess_num == 0:
-        print("Who said this shit??\n")
-    # else:
-    #     random_quote.hint(guess_num)
-    guess = input(f'{random_quote.text}\n\nType your guess here: ')
-    if guess.lower() == random_quote.author.lower():
-        print('You did it!')
-        break
-    elif guess.lower() != random_quote.author.lower() and guess_num < 2:
-        print("\nNope! Try again\n")
-        print(random_quote.hint(guess_num))
-        guess_num += 1
-        continue
-    else:
-        print("\nNope! One last guess!\n\n")
-        print(random_quote.hint(guess_num))
-        guess_num += 1
 
-
-
-# playing = True
-# while(playing):
-#     print("Who said this shit??")
-#     guess = input(f'{data[1].text}')
-#     if guess.lower() == data[1].author.lower():
-#         print('You did it!')
-#         break
-#     else:
-#         print("Nope!")
-#         break
-
-# print(response)
-# quotes = soup.find_all(class_="quote")
-# quotes = soup.select('.quote')
-# for quote in quotes:
-#     quote_text = quote.find(class_="text").get_text()
-#     print(quote_text)
-#     print('')
-# while(playing):
+while True:
+    random_index = random.randint(0, len(data) - 1)
+    random_quote = data[random_index]
+    print(random_quote.author)
+    while guess_num <= 4:
+        # print(f"guess_num = {guess_num}")
+        if guess_num == 0:
+            print("Who said this shit??\n")
+        # else:
+        #     random_quote.hint(guess_num)
+        guess = input(f'{random_quote.text}\n\nType your guess here: ')
+        if guess.lower() == random_quote.author.lower():
+            print('You did it!')
+            break
+        elif guess.lower() != random_quote.author.lower() and guess_num < 3:
+            print("\nNope! Try again\n")
+            print(random_quote.hint(guess_num))
+            guess_num += 1
+            # continue
+        elif guess.lower() != random_quote.author.lower() and guess_num >= 3:
+            if guess_num < 4:
+                print("\nNope! One last guess!\n\n")
+                print(random_quote.hint(guess_num))
+                guess_num += 1
+            else:
+                print("Wanna play again?")
+                play_again = input("Type: y or n\n")
+                if play_again == 'y':
+                    guess_num = 1
+                else:
+                    print('K bye')
+                    exit()
 
